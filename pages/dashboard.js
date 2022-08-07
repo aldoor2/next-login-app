@@ -10,8 +10,13 @@ function DashboardPage() {
   const router = useRouter()
 
   const getProfile = async () => {
-    const response = await axios.get('/api/profile')
-    setUser(response.data)
+    try {
+      const response = await axios.get('/api/profile')
+      setUser(response.data)
+    } catch (error) {
+      console.error(error)
+      router.push('/login')
+    }
   }
 
   const logout = async () => {

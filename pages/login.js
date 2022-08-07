@@ -15,7 +15,7 @@ function LoginPage() {
     e.preventDefault()
     const response = await axios.post('/api/auth/login', credentials)
 
-    if (response.status === 200) return router.push('/dashboard')
+    if (response.status === 200) router.push('/dashboard')
   }
 
   return (
